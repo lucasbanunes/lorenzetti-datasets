@@ -18,7 +18,7 @@ cd "${lzt_repo}/build" && source lzt_setup.sh && \
 # generate events with pythia
 mkdir -p "${base_dir}/EVT" && cd "${base_dir}/EVT" && \
 echo "$(date -d "today" +"%Y/%m/%d %H-%M-%s") - Started EVT sim" > "${base_dir}/started_EVT.log" && \
-(gen_minbias.py --output-file minbias.EVT.root -nt $n_workers --nov $nov --seed $seed --events-per-job 10 --pileup-avg 200 --pileup-sigma 0 -o "${base_dir}/EVT/minbias.EVT.root" |& tee "${base_dir}/minbias.EVT.log")  && \
+(gen_minbias.py --output-file minbias.EVT.root -nt $n_workers --nov $nov --seed $seed --events-per-job $events_per_job --pileup-avg 200 --pileup-sigma 0 -o "${base_dir}/EVT/minbias.EVT.root" |& tee "${base_dir}/minbias.EVT.log")  && \
 echo "$(date -d "today" +"%Y/%m/%d %H-%M-%s") - Finished EVT sim" > "${base_dir}/finished_EVT.log"
 # generate hits around the truth particle seed
 mkdir -p $hit_dir && cd $hit_dir && \
